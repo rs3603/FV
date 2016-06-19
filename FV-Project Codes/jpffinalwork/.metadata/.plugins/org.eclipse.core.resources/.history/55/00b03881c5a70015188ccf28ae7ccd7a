@@ -1,0 +1,31 @@
+# run RobotManager example with background data acquisition thread
+# show instruction trace
+
+target = RobotManager
+
+# which event sequences to explore
+event.tree.class=RobotManager_thread
+
+# the modeled data acquisition thread needs it
+cg.enumerate_random=true
+
+# don't obfuscate things in handlers
+vm.halt_on_throw=java.lang.NullPointerException
+
+# we are not interested in the known POGO assertion
+vm.disable_assertions=POGO
+
+listener=.listener.TraceStorer
+listener=gov.nasa.jpf.listener.PreciseRaceDetector
+# what to show
+report.console.property_violation=snapshot,error
+report.console.finished=statistics
+
+
+# where to get the event generator
+native_classpath=${jpf-awt}/build/examples
+
+# where to find example sources and classfiles 
+classpath=${jpf-awt}/build/examples;${jpf-awt}/lib/jpf-aprop-annotations.jar;${classpath}
+sourcepath=${jpf-awt}/src/examples;${sourcepath}
+

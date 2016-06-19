@@ -1,0 +1,20 @@
+# run RobotManager example without data acquisition thread
+# and show user event trace
+
+target = RobotManager
+
+#--- which script to run
+event.tree.class=RobotManager_noThread
+
+#--- what results to show
+listener=.listener.ChoiceTracker
+choice.class=.util.event.EventChoiceGenerator
+
+report.console.property_violation=error,trace
+
+#--- where to find the event generator
+native_classpath=${jpf-awt}/build/examples
+
+#--- where to find example sources and classfiles
+classpath=${jpf-awt}/build/examples;${jpf-awt}/lib/jpf-aprop-annotations.jar;${classpath}
+sourcepath=${jpf-awt}/src/examples;${sourcepath}

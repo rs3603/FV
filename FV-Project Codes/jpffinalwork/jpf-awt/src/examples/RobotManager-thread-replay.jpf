@@ -1,0 +1,8 @@
+# run RobotManager example with background data acquisition thread
+# show instruction trace
+
+@include ${config_path}/RobotManager-thread.jpf
+
+listener=.listener.ChoiceSelector
+choice.use_trace=trace
+

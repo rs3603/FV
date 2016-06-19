@@ -1,0 +1,2 @@
+target = Deadlock
+report.console.property_violation=error,trace

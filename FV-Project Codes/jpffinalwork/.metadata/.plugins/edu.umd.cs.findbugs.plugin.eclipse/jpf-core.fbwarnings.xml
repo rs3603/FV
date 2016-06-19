@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<BugCollection version="3.0.1-dev-20150306-5afe4d1" sequence="12" timestamp="1450744871218" analysisTimestamp="1450744867286" release="">
+  <Project projectName="jpf-core">
+    <Jar>C:\Users\Raghavendra\jpffinalwork\jpf-core\build\examples\Rand.class</Jar>
+    <AuxClasspathEntry>C:\Users\Raghavendra\jpffinalwork\jpf-core\build\main</AuxClasspathEntry>
+    <AuxClasspathEntry>C:\Users\Raghavendra\jpffinalwork\jpf-core\build\peers</AuxClasspathEntry>
+    <AuxClasspathEntry>C:\Users\Raghavendra\jpffinalwork\jpf-core\build\classes</AuxClasspathEntry>
+    <AuxClasspathEntry>C:\Users\Raghavendra\jpffinalwork\jpf-core\build\annotations</AuxClasspathEntry>
+    <AuxClasspathEntry>C:\Users\Raghavendra\jpffinalwork\jpf-core\build\examples</AuxClasspathEntry>
+    <AuxClasspathEntry>C:\Users\Raghavendra\jpffinalwork\jpf-core\build\tests</AuxClasspathEntry>
+    <AuxClasspathEntry>C:\Users\Raghavendra\jpffinalwork\jpf-core\build</AuxClasspathEntry>
+    <AuxClasspathEntry>C:\Program Files\Java\jdk1.8.0_45\lib\tools.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>C:\Program Files\Java\jdk1.8.0_45\jre\lib\rt.jar</AuxClasspathEntry>
+    <SrcDir>C:\Users\Raghavendra\jpffinalwork\jpf-core\src\classes</SrcDir>
+    <SrcDir>C:\Users\Raghavendra\jpffinalwork\jpf-core\src\peers</SrcDir>
+    <SrcDir>C:\Users\Raghavendra\jpffinalwork\jpf-core\src\tests</SrcDir>
+    <SrcDir>C:\Users\Raghavendra\jpffinalwork\jpf-core\src\examples</SrcDir>
+    <SrcDir>C:\Users\Raghavendra\jpffinalwork\jpf-core\src\annotations</SrcDir>
+    <SrcDir>C:\Users\Raghavendra\jpffinalwork\jpf-core\src\main</SrcDir>
+    <Cloud id="edu.umd.cs.findbugs.cloud.doNothingCloud" online="false"></Cloud>
+  </Project>
+  <BugInstance type="UC_USELESS_OBJECT" priority="2" rank="17" abbrev="UC" category="STYLE" first="4">
+    <Class classname="CheckNPE">
+      <SourceLine classname="CheckNPE" sourcefile="CheckNPE.java" sourcepath="CheckNPE.java"/>
+    </Class>
+    <Method classname="CheckNPE" name="main" signature="([Ljava/lang/String;)V" isStatic="true">
+      <SourceLine classname="CheckNPE" start="5" end="7" startBytecode="0" endBytecode="73" sourcefile="CheckNPE.java" sourcepath="CheckNPE.java"/>
+    </Method>
+    <String value="boll"/>
+    <Type descriptor="[LResultList;"/>
+    <SourceLine classname="CheckNPE" start="5" end="5" startBytecode="1" endBytecode="1" sourcefile="CheckNPE.java" sourcepath="CheckNPE.java"/>
+  </BugInstance>
+  <BugInstance type="ST_WRITE_TO_STATIC_FROM_INSTANCE_METHOD" priority="2" rank="17" abbrev="ST" category="STYLE" first="3">
+    <Class classname="CheckRace">
+      <SourceLine classname="CheckRace" sourcefile="CheckRace.java" sourcepath="CheckRace.java"/>
+    </Class>
+    <Method classname="CheckRace" name="run" signature="()V" isStatic="false">
+      <SourceLine classname="CheckRace" start="4" end="6" startBytecode="0" endBytecode="70" sourcefile="CheckRace.java" sourcepath="CheckRace.java"/>
+    </Method>
+    <Field classname="CheckRace" name="cnt" signature="I" isStatic="true">
+      <SourceLine classname="CheckRace" sourcefile="CheckRace.java" sourcepath="CheckRace.java"/>
+    </Field>
+    <SourceLine classname="CheckRace" start="5" end="5" startBytecode="7" endBytecode="7" sourcefile="CheckRace.java" sourcepath="CheckRace.java"/>
+    <SourceLine classname="CheckRace" start="5" end="5" startBytecode="7" endBytecode="7" sourcefile="CheckRace.java" sourcepath="CheckRace.java"/>
+  </BugInstance>
+  <BugInstance type="EI_EXPOSE_REP2" priority="2" rank="18" abbrev="EI2" category="MALICIOUS_CODE" first="1">
+    <Class classname="Crossing">
+      <SourceLine classname="Crossing" sourcefile="Crossing.java" sourcepath="Crossing.java"/>
+    </Class>
+    <Method classname="Crossing" name="&lt;init&gt;" signature="([LPerson;LSide;)V" isStatic="false">
+      <SourceLine classname="Crossing" start="146" end="154" startBytecode="0" endBytecode="192" sourcefile="Crossing.java" sourcepath="Crossing.java"/>
+    </Method>
+    <Field classname="Crossing" name="persons" signature="[LPerson;" isStatic="false">
+      <SourceLine classname="Crossing" sourcefile="Crossing.java" sourcepath="Crossing.java"/>
+    </Field>
+    <LocalVariable name="persons" register="1" pc="6" role="LOCAL_VARIABLE_NAMED"/>
+    <SourceLine classname="Crossing" start="147" end="147" startBytecode="6" endBytecode="6" sourcefile="Crossing.java" sourcepath="Crossing.java"/>
+    <SourceLine classname="Crossing" start="147" end="147" startBytecode="6" endBytecode="6" sourcefile="Crossing.java" sourcepath="Crossing.java"/>
+  </BugInstance>
+  <BugInstance type="VA_FORMAT_STRING_USES_NEWLINE" priority="2" rank="20" abbrev="FS" category="BAD_PRACTICE" first="1">
+    <Class classname="Crossing">
+      <SourceLine classname="Crossing" sourcefile="Crossing.java" sourcepath="Crossing.java"/>
+    </Class>
+    <Method classname="Crossing" name="printCrossingState" signature="()V" isStatic="false">
+      <SourceLine classname="Crossing" start="227" end="230" startBytecode="0" endBytecode="121" sourcefile="Crossing.java" sourcepath="Crossing.java"/>
+    </Method>
+    <Method classname="java.io.PrintStream" name="printf" signature="(Ljava/lang/String;[Ljava/lang/Object;)Ljava/io/PrintStream;" isStatic="false" role="METHOD_CALLED">
+      <SourceLine classname="java.io.PrintStream" start="871" end="871" startBytecode="0" endBytecode="30" sourcefile="PrintStream.java" sourcepath="java/io/PrintStream.java"/>
+    </Method>
+    <String value="%20s %s====%s %-20s : elapsed time=%d\n" role="STRING_FORMAT_STRING"/>
+    <SourceLine classname="Crossing" start="227" end="227" startBytecode="59" endBytecode="59" sourcefile="Crossing.java" sourcepath="Crossing.java"/>
+  </BugInstance>
+  <BugInstance type="VA_FORMAT_STRING_USES_NEWLINE" priority="2" rank="20" abbrev="FS" category="BAD_PRACTICE" first="1">
+    <Class classname="Crossing">
+      <SourceLine classname="Crossing" sourcefile="Crossing.java" sourcepath="Crossing.java"/>
+    </Class>
+    <Method classname="Crossing" name="printPersons" signature="()V" isStatic="false">
+      <SourceLine classname="Crossing" start="221" end="224" startBytecode="0" endBytecode="141" sourcefile="Crossing.java" sourcepath="Crossing.java"/>
+    </Method>
+    <Method classname="java.io.PrintStream" name="printf" signature="(Ljava/lang/String;[Ljava/lang/Object;)Ljava/io/PrintStream;" isStatic="false" role="METHOD_CALLED">
+      <SourceLine classname="java.io.PrintStream" start="871" end="871" startBytecode="0" endBytecode="30" sourcefile="PrintStream.java" sourcepath="java/io/PrintStream.java"/>
+    </Method>
+    <String value="%10s needs %2d min to cross\n" role="STRING_FORMAT_STRING"/>
+    <SourceLine classname="Crossing" start="222" end="222" startBytecode="48" endBytecode="48" sourcefile="Crossing.java" sourcepath="Crossing.java"/>
+  </BugInstance>
+  <BugInstance type="DL_SYNCHRONIZATION_ON_SHARED_CONSTANT" priority="2" rank="14" abbrev="DL" category="MT_CORRECTNESS" first="2">
+    <Class classname="Deadlock$1">
+      <SourceLine classname="Deadlock$1" sourcefile="Deadlock.java" sourcepath="Deadlock.java"/>
+    </Class>
+    <Method classname="Deadlock$1" name="run" signature="()V" isStatic="false">
+      <SourceLine classname="Deadlock$1" start="9" end="9" startBytecode="0" endBytecode="196" sourcefile="Deadlock.java" sourcepath="Deadlock.java"/>
+    </Method>
+    <String value="Java" role="STRING_CONSTANT"/>
+    <SourceLine classname="Deadlock$1" start="10" end="10" startBytecode="19" endBytecode="19" sourcefile="Deadlock.java" sourcepath="Deadlock.java"/>
+    <SourceLine classname="Deadlock$1" start="10" end="10" startBytecode="19" endBytecode="19" sourcefile="Deadlock.java" sourcepath="Deadlock.java"/>
+  </BugInstance>
+  <BugInstance type="DL_SYNCHRONIZATION_ON_SHARED_CONSTANT" priority="2" rank="14" abbrev="DL" category="MT_CORRECTNESS" first="2">
+    <Class classname="Deadlock$1">
+      <SourceLine classname="Deadlock$1" sourcefile="Deadlock.java" sourcepath="Deadlock.java"/>
+    </Class>
+    <Method classname="Deadlock$1" name="run" signature="()V" isStatic="false">
+      <SourceLine classname="Deadlock$1" start="9" end="9" startBytecode="0" endBytecode="196" sourcefile="Deadlock.java" sourcepath="Deadlock.java"/>
+    </Method>
+    <String value="UNIX" role="STRING_CONSTANT"/>
+    <SourceLine classname="Deadlock$1" start="9" end="9" startBytecode="9" endBytecode="9" sourcefile="Deadlock.java" sourcepath="Deadlock.java"/>
+    <SourceLine classname="Deadlock$1" start="9" end="9" startBytecode="9" endBytecode="9" sourcefile="Deadlock.java" sourcepath="Deadlock.java"/>
+  </BugInstance>
+  <BugInstance type="DL_SYNCHRONIZATION_ON_SHARED_CONSTANT" priority="2" rank="14" abbrev="DL" category="MT_CORRECTNESS" first="2">
+    <Class classname="Deadlock$2">
+      <SourceLine classname="Deadlock$2" sourcefile="Deadlock.java" sourcepath="Deadlock.java"/>
+    </Class>
+    <Method classname="Deadlock$2" name="run" signature="()V" isStatic="false">
+      <SourceLine classname="Deadlock$2" start="21" end="21" startBytecode="0" endBytecode="196" sourcefile="Deadlock.java" sourcepath="Deadlock.java"/>
+    </Method>
+    <String value="Java" role="STRING_CONSTANT"/>
+    <SourceLine classname="Deadlock$2" start="22" end="22" startBytecode="19" endBytecode="19" sourcefile="Deadlock.java" sourcepath="Deadlock.java"/>
+    <SourceLine classname="Deadlock$2" start="22" end="22" startBytecode="19" endBytecode="19" sourcefile="Deadlock.java" sourcepath="Deadlock.java"/>
+  </BugInstance>
+  <BugInstance type="DL_SYNCHRONIZATION_ON_SHARED_CONSTANT" priority="2" rank="14" abbrev="DL" category="MT_CORRECTNESS" first="2">
+    <Class classname="Deadlock$2">
+      <SourceLine classname="Deadlock$2" sourcefile="Deadlock.java" sourcepath="Deadlock.java"/>
+    </Class>
+    <Method classname="Deadlock$2" name="run" signature="()V" isStatic="false">
+      <SourceLine classname="Deadlock$2" start="21" end="21" startBytecode="0" endBytecode="196" sourcefile="Deadlock.java" sourcepath="Deadlock.java"/>
+    </Method>
+    <String value="UNIX" role="STRING_CONSTANT"/>
+    <SourceLine classname="Deadlock$2" start="21" end="21" startBytecode="9" endBytecode="9" sourcefile="Deadlock.java" sourcepath="Deadlock.java"/>
+    <SourceLine classname="Deadlock$2" start="21" end="21" startBytecode="9" endBytecode="9" sourcefile="Deadlock.java" sourcepath="Deadlock.java"/>
+  </BugInstance>
+  <BugInstance type="VA_FORMAT_STRING_USES_NEWLINE" priority="2" rank="20" abbrev="FS" category="BAD_PRACTICE" first="7">
+    <Class classname="Rand">
+      <SourceLine classname="Rand" sourcefile="Rand.java" sourcepath="Rand.java"/>
+    </Class>
+    <Method classname="Rand" name="main" signature="([Ljava/lang/String;)V" isStatic="true">
+      <SourceLine classname="Rand" start="23" end="36" startBytecode="0" endBytecode="236" sourcefile="Rand.java" sourcepath="Rand.java"/>
+    </Method>
+    <Method classname="java.io.PrintStream" name="printf" signature="(Ljava/lang/String;[Ljava/lang/Object;)Ljava/io/PrintStream;" isStatic="false" role="METHOD_CALLED">
+      <SourceLine classname="java.io.PrintStream" start="871" end="871" startBytecode="0" endBytecode="30" sourcefile="PrintStream.java" sourcepath="java/io/PrintStream.java"/>
+    </Method>
+    <String value="  b=%d       ,a=%d\n" role="STRING_FORMAT_STRING"/>
+    <SourceLine classname="Rand" start="32" end="32" startBytecode="74" endBytecode="74" sourcefile="Rand.java" sourcepath="Rand.java"/>
+  </BugInstance>
+  <BugInstance type="VA_FORMAT_STRING_USES_NEWLINE" priority="2" rank="20" abbrev="FS" category="BAD_PRACTICE" first="7">
+    <Class classname="Rand">
+      <SourceLine classname="Rand" sourcefile="Rand.java" sourcepath="Rand.java"/>
+    </Class>
+    <Method classname="Rand" name="main" signature="([Ljava/lang/String;)V" isStatic="true">
+      <SourceLine classname="Rand" start="23" end="36" startBytecode="0" endBytecode="236" sourcefile="Rand.java" sourcepath="Rand.java"/>
+    </Method>
+    <Method classname="java.io.PrintStream" name="printf" signature="(Ljava/lang/String;[Ljava/lang/Object;)Ljava/io/PrintStream;" isStatic="false" role="METHOD_CALLED">
+      <SourceLine classname="java.io.PrintStream" start="871" end="871" startBytecode="0" endBytecode="30" sourcefile="PrintStream.java" sourcepath="java/io/PrintStream.java"/>
+    </Method>
+    <String value="=&gt;  c=%d     , b=%d, a=%d\n" role="STRING_FORMAT_STRING"/>
+    <SourceLine classname="Rand" start="35" end="35" startBytecode="118" endBytecode="118" sourcefile="Rand.java" sourcepath="Rand.java"/>
+  </BugInstance>
+  <BugInstance type="VA_FORMAT_STRING_USES_NEWLINE" priority="2" rank="20" abbrev="FS" category="BAD_PRACTICE" first="7">
+    <Class classname="Rand">
+      <SourceLine classname="Rand" sourcefile="Rand.java" sourcepath="Rand.java"/>
+    </Class>
+    <Method classname="Rand" name="main" signature="([Ljava/lang/String;)V" isStatic="true">
+      <SourceLine classname="Rand" start="23" end="36" startBytecode="0" endBytecode="236" sourcefile="Rand.java" sourcepath="Rand.java"/>
+    </Method>
+    <Method classname="java.io.PrintStream" name="printf" signature="(Ljava/lang/String;[Ljava/lang/Object;)Ljava/io/PrintStream;" isStatic="false" role="METHOD_CALLED">
+      <SourceLine classname="java.io.PrintStream" start="871" end="871" startBytecode="0" endBytecode="30" sourcefile="PrintStream.java" sourcepath="java/io/PrintStream.java"/>
+    </Method>
+    <String value="a=%d\n" role="STRING_FORMAT_STRING"/>
+    <SourceLine classname="Rand" start="27" end="27" startBytecode="41" endBytecode="41" sourcefile="Rand.java" sourcepath="Rand.java"/>
+  </BugInstance>
+  <BugInstance type="URF_UNREAD_PUBLIC_OR_PROTECTED_FIELD" priority="2" rank="18" abbrev="UrF" category="STYLE" first="4">
+    <Class classname="ResultList">
+      <SourceLine classname="ResultList" sourcefile="CheckNPE.java" sourcepath="CheckNPE.java"/>
+    </Class>
+    <Field classname="ResultList" name="name" signature="Ljava/lang/String;" isStatic="false">
+      <SourceLine classname="ResultList" sourcefile="CheckNPE.java" sourcepath="CheckNPE.java"/>
+    </Field>
+    <SourceLine classname="CheckNPE" start="6" end="6" startBytecode="10" endBytecode="10" sourcefile="CheckNPE.java" sourcepath="CheckNPE.java"/>
+  </BugInstance>
+  <BugInstance type="UUF_UNUSED_PUBLIC_OR_PROTECTED_FIELD" priority="2" rank="17" abbrev="UuF" category="STYLE" first="4">
+    <Class classname="ResultList">
+      <SourceLine classname="ResultList" sourcefile="CheckNPE.java" sourcepath="CheckNPE.java"/>
+    </Class>
+    <Field classname="ResultList" name="value" signature="Ljava/lang/Object;" isStatic="false">
+      <SourceLine classname="ResultList" start="11" end="11" startBytecode="0" endBytecode="0" sourcefile="ResultList.java" sourcepath="ResultList.java"/>
+    </Field>
+  </BugInstance>
+  <BugInstance type="VA_FORMAT_STRING_USES_NEWLINE" priority="2" rank="20" abbrev="FS" category="BAD_PRACTICE" first="8">
+    <Class classname="RobotManager">
+      <SourceLine classname="RobotManager" sourcefile="RobotManager.java" sourcepath="RobotManager.java"/>
+    </Class>
+    <Method classname="RobotManager" name="processInput" signature="()V" isStatic="false">
+      <SourceLine classname="RobotManager" start="121" end="132" startBytecode="0" endBytecode="207" sourcefile="RobotManager.java" sourcepath="RobotManager.java"/>
+    </Method>
+    <Method classname="java.io.PrintStream" name="printf" signature="(Ljava/lang/String;[Ljava/lang/Object;)Ljava/io/PrintStream;" isStatic="false" role="METHOD_CALLED">
+      <SourceLine classname="java.io.PrintStream" start="871" end="871" startBytecode="0" endBytecode="30" sourcefile="PrintStream.java" sourcepath="java/io/PrintStream.java"/>
+    </Method>
+    <String value="sent sequence &quot;%s&quot; to robot %s =&gt; %s\n" role="STRING_FORMAT_STRING"/>
+    <SourceLine classname="RobotManager" start="127" end="127" startBytecode="49" endBytecode="49" sourcefile="RobotManager.java" sourcepath="RobotManager.java"/>
+  </BugInstance>
+  <BugInstance type="VA_FORMAT_STRING_USES_NEWLINE" priority="2" rank="20" abbrev="FS" category="BAD_PRACTICE" first="8">
+    <Class classname="RobotManager$Robot">
+      <SourceLine classname="RobotManager$Robot" sourcefile="RobotManager.java" sourcepath="RobotManager.java"/>
+    </Class>
+    <Method classname="RobotManager$Robot" name="processSequence" signature="(Ljava/lang/String;)Ljava/lang/String;" isStatic="false">
+      <SourceLine classname="RobotManager$Robot" start="42" end="43" startBytecode="0" endBytecode="82" sourcefile="RobotManager.java" sourcepath="RobotManager.java"/>
+    </Method>
+    <Method classname="java.io.PrintStream" name="printf" signature="(Ljava/lang/String;[Ljava/lang/Object;)Ljava/io/PrintStream;" isStatic="false" role="METHOD_CALLED">
+      <SourceLine classname="java.io.PrintStream" start="871" end="871" startBytecode="0" endBytecode="30" sourcefile="PrintStream.java" sourcepath="java/io/PrintStream.java"/>
+    </Method>
+    <String value="robot %s processing sequence: %s\n" role="STRING_FORMAT_STRING"/>
+    <SourceLine classname="RobotManager$Robot" start="42" end="42" startBytecode="20" endBytecode="20" sourcefile="RobotManager.java" sourcepath="RobotManager.java"/>
+  </BugInstance>
+  <Errors errors="0" missingClasses="0"></Errors>
+  <FindBugsSummary timestamp="Sun, 20 Dec 2015 23:21:13 -0500" total_classes="1" referenced_classes="10" total_bugs="16" total_size="13" num_packages="1" java_version="1.7.0_09" vm_version="23.5-b02" cpu_seconds="4.21" clock_seconds="3.94" peak_mbytes="332.04" alloc_mbytes="494.94" gc_seconds="0.05" priority_2="16">
+    <PackageStats package="" total_bugs="16" total_types="9" total_size="13" priority_2="16">
+      <ClassStats class="Rand" sourceFile="Rand.java" interface="false" size="13" bugs="3" priority_2="3"/>
+    </PackageStats>
+    <FindBugsProfile>
+      <ClassProfile name="de.tobject.findbugs.builder.FindBugs2Eclipse" totalMilliseconds="3267" invocations="2" avgMicrosecondsPerInvocation="1633744" maxMicrosecondsPerInvocation="3246097" standardDeviationMircosecondsPerInvocation="1612352"/>
+    </FindBugsProfile>
+  </FindBugsSummary>
+  <ClassFeatures></ClassFeatures>
+  <History>
+    <AppVersion sequence="0" timestamp="1450690705231" release="" codeSize="0" numClasses="0"/>
+    <AppVersion sequence="1" timestamp="1450690705231" release="" codeSize="127" numClasses="4"/>
+    <AppVersion sequence="2" timestamp="1450744495998" release="" codeSize="34" numClasses="3"/>
+    <AppVersion sequence="3" timestamp="1450744558187" release="" codeSize="16" numClasses="1"/>
+    <AppVersion sequence="4" timestamp="1450744573633" release="" codeSize="12" numClasses="2"/>
+    <AppVersion sequence="5" timestamp="1450744589078" release="" codeSize="12" numClasses="2"/>
+    <AppVersion sequence="6" timestamp="1450744622116" release="" codeSize="12" numClasses="2"/>
+    <AppVersion sequence="7" timestamp="1450744645838" release="" codeSize="13" numClasses="1"/>
+    <AppVersion sequence="8" timestamp="1450744713233" release="" codeSize="83" numClasses="3"/>
+    <AppVersion sequence="9" timestamp="1450744830844" release="" codeSize="34" numClasses="3"/>
+    <AppVersion sequence="10" timestamp="1450744848411" release="" codeSize="16" numClasses="1"/>
+    <AppVersion sequence="11" timestamp="1450744857458" release="" codeSize="12" numClasses="2"/>
+  </History>
+</BugCollection>

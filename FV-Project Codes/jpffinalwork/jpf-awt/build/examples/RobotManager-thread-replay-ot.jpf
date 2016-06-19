@@ -1,0 +1,8 @@
+@include ${config_path}/RobotManager-thread.jpf
+
+listener=.listener.ChoiceSelector,.listener.ObjectTracker
+
+choice.use_trace=trace
+
+ot.refs = 0x160,0x194
+ot.log_fields=false

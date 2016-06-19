@@ -1,0 +1,3 @@
+target = CheckNPE
+vm.halt_on_throw=java.lang.NullPointerException
+report.console.property_violation=error,trace

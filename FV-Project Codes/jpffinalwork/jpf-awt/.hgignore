@@ -1,0 +1,13 @@
+syntax: glob
+
+local.properties
+trace
+.version
+nbproject/private/*
+build/*
+dist/*
+tmp/*
+activity*.png
+*.class
+*~
+*.DS_Store

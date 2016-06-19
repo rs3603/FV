@@ -1,0 +1,626 @@
+//Copyright (C) 2008 United States Government as represented by the
+//Administrator of the National Aeronautics and Space Administration
+//(NASA).  All Rights Reserved.
+
+//This software is distributed under the NASA Open Source Agreement
+//(NOSA), version 1.3.  The NOSA has been approved by the Open Source
+//Initiative.  See the file NOSA-1.3-JPF at the top of the distribution
+//directory tree for the complete NOSA document.
+
+//THE SUBJECT SOFTWARE IS PROVIDED "AS IS" WITHOUT ANY WARRANTY OF ANY
+//KIND, EITHER EXPRESSED, IMPLIED, OR STATUTORY, INCLUDING, BUT NOT
+//LIMITED TO, ANY WARRANTY THAT THE SUBJECT SOFTWARE WILL CONFORM TO
+//SPECIFICATIONS, ANY IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR
+//A PARTICULAR PURPOSE, OR FREEDOM FROM INFRINGEMENT, ANY WARRANTY THAT
+//THE SUBJECT SOFTWARE WILL BE ERROR FREE, OR ANY WARRANTY THAT
+//DOCUMENTATION, IF PROVIDED, WILL CONFORM TO THE SUBJECT SOFTWARE.
+
+//import gov.nasa.jpf.annotation.NonShared;    // requires jpf-aprop
+
+import gov.nasa.jpf.annotation.NonShared;
+import javax.swing.*;
+import javax.swing.border.*;
+import javax.swing.event.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.lang.reflect.Field;
+import java.lang.reflect.Method;
+
+import java.util.*;
+
+/**
+ * sample application to demonstrate UI model checking
+ */
+
+//====================================================================
+// our robot class hierarchy
+abstract class Robot {
+  String id;
+  Robot (String id){
+    this.id = id;
+  }
+  public String getId() {
+    return id;
+  }
+  public String getResult (String sequence) {
+    StringBuilder sb = new StringBuilder();
+    sb.append(id);
+    sb.append(" processed <");
+    sb.append(sequence);
+    sb.append("> with ");
+    
+    Option[] options = Option.values();
+    for (int i=0; i<options.length; i++) {
+      if (i>0) {
+        sb.append(',');
+      }
+      sb.append(options[i].name());
+      sb.append('=');
+      sb.append(options[i].isSet());
+    }
+    String ret = sb.toString();
+    
+    Logger.log(ret);
+    return ret;
+  }
+  
+  abstract public String processSequence(String sequence);
+}
+
+// the concrete Robot types
+class RATS extends Robot {
+  public RATS (String id) {
+    super(id);
+  }
+  public String processSequence(String sequence) {
+    return getResult(sequence);
+  }
+}
+class RCAT extends Robot {
+  public RCAT (String id) {
+    super(id);
+  }
+  public String processSequence(String sequence) {
+    return getResult(sequence);
+  }
+}
+class POGO extends Robot {
+  public POGO (String id) {
+    super(id);
+  }
+  public String processSequence(String sequence) {
+    //... do some processing
+    assert !(Option.FORCED.isSet() && Option.QUEUED.isSet()) : "POGOs cannot force queued sequences";
+    //... do a lot more processing
+    return getResult(sequence);
+  }
+}
+
+//====================================================================
+// command sequence options
+enum Option {
+  FORCED,QUEUED,SINGLE_STEP;
+
+  private boolean isSet;
+  public void set (boolean val) { isSet = val; }
+  public boolean isSet() { return isSet; }
+}
+
+//====================================================================
+class Logger {
+  static boolean isActive = false;
+  
+  static void setActive (boolean b) {
+    isActive = b;
+  }
+  
+  static void log (Object... p) {
+    if (isActive) {
+      System.out.print(Thread.currentThread().getName());
+      System.out.print(": ");
+      for (Object o : p) {
+        System.out.print(o);
+      }
+      System.out.println();
+    }
+  }
+}
+
+//====================================================================
+// keep track of which robots are online
+class RobotStatusAcquisitionThread extends Thread {
+  RobotManager model;
+  boolean done;
+  
+  public RobotStatusAcquisitionThread (RobotManager model) {
+    this.model = model;
+    setDaemon(true);
+  }
+  
+  public void run() {
+    ListModel robotList = model.getListModel();
+    
+    int n = robotList.getSize();
+    Random random = new Random(0);
+
+    while (!done) {
+      int idx = random.nextInt(n);
+      Robot robot = (Robot)robotList.getElementAt(idx);
+      model.setRobotOnline(robot, !model.isRobotOnline(robot.getId()));
+      
+      try {
+        Thread.sleep(3000);
+      } catch (InterruptedException ix) {}
+    }
+  }
+  
+  public void terminate() {
+    done = true;
+  }
+}
+
+class SetRoboOneOnline extends Thread {
+	  RobotManager model;
+	  boolean done;
+	  
+	  public SetRoboOneOnline (RobotManager model) {
+	    this.model = model;
+	    setDaemon(true);
+	  }
+	  
+	  public void run() {
+	    ListModel robotList = model.getListModel();
+	    
+	    int n = robotList.getSize();
+	    Random random = new Random(0);
+
+	    while (!done) {
+	      int idx = random.nextInt(n);
+	      Robot robot = (Robot)robotList.getElementAt(1);
+	      model.setRobotOnline(robot, true);
+	      
+	      try {
+	        Thread.sleep(3);
+	      } catch (InterruptedException ix) {}
+	    }
+	  }
+	  
+	  public void terminate() {
+	    done = true;
+	  }
+	}
+
+//====================================================================
+// this is our application class (the data repository/change mediator)
+//@Shared({"main", "AWT-EventQueue-0"})  // requires jpf-aprop to run
+@NonShared
+public class RobotManager {
+      
+  class ListModel extends AbstractListModel {
+    public int getSize() {
+      return robots.size();
+    }
+    
+    public Object getElementAt (int idx){
+      return robots.get(idx);
+    }
+    
+    public void add (Robot robot){
+      robots.add(robot);
+      int idx = robots.size()-1;
+      fireIntervalAdded(this, idx, idx);
+    }
+    
+    public void changed (Robot robot) {
+      int idx = robots.indexOf(robot);
+      if (idx >= 0) {
+        fireContentsChanged(this, idx, idx);
+      }
+    }
+  }  
+  
+  // all robots we know of
+  ArrayList<Robot> robots = new ArrayList<Robot>();
+  
+  ListModel listModel = new ListModel();
+ 
+  // the ones that are within reach
+  // (we don't use a HashSet for demo purposes)
+  HashMap<String,Robot> onlineRobots = new HashMap<String,Robot>();
+    
+  // the async thread that updates the onlineRobots
+  RobotStatusAcquisitionThread acquisitionThread;
+  SetRoboOneOnline setOne;
+  public RobotManager() {
+    addRobot( new RATS("RATS-1"));
+    addRobot( new RATS("RATS-2"));    
+    addRobot( new RCAT("RCAT-1"));
+    addRobot( new POGO("POGO-1"));
+    
+    for (Robot r : robots) {
+      setRobotOnline(r, true);
+    }
+  }
+  
+  public void startAcquisitionThread() {
+    if (acquisitionThread == null) {
+      RobotStatusAcquisitionThread t = new RobotStatusAcquisitionThread(this);
+      SetRoboOneOnline t1  = new SetRoboOneOnline(this);
+      setOne = t1;
+      acquisitionThread = t;
+      t.start(); 
+      t1.start();
+      try {
+		t.join(5000);
+		t1.join(5000);
+	} catch (InterruptedException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}
+    }
+  }
+  
+  public void stopAcquisitionThread() {
+    if (acquisitionThread != null) {
+      acquisitionThread.terminate();
+      
+      try { // BAD! timeout wait in dispatcher loop
+        acquisitionThread.join(5000);
+        acquisitionThread = null;
+      } catch (InterruptedException e) {
+        e.printStackTrace();
+      }
+    }
+    if (setOne != null) {
+        setOne.terminate();
+        
+        try { // BAD! timeout wait in dispatcher loop
+          setOne.join(5000);
+          setOne = null;
+        } catch (InterruptedException e) {
+          e.printStackTrace();
+        }
+      }
+  }
+  
+  public synchronized void addRobot (Robot robot){
+    listModel.add(robot);
+  }
+
+  public void setRobotOnline (Robot robot, boolean isOnline) {
+    if (isOnline) {
+      onlineRobots.put(robot.getId(), robot);
+    } else {
+      onlineRobots.remove(robot.getId());
+    }
+    listModel.changed(robot);
+  }
+  
+  public int getNumberOfRobots() {
+    return robots.size();
+  }
+  
+  public boolean isRobotOnline (String robotName) {
+    return onlineRobots.containsKey(robotName);
+  }
+  
+  public Robot getOnlineRobot (String robotName) {
+    return onlineRobots.get(robotName);
+  }
+  
+  public ListModel getListModel() {
+    return listModel;
+  }
+  
+  // this is the main purpose of the model
+  public String sendSequence(Robot robot, String sequence) {    
+    	  return robot.processSequence(sequence); 
+    }
+
+  public static void main (String[] args){
+    if (args.length > 0) {
+      if (args[0].equals("log")) {
+        Logger.setActive(true);
+      }
+    }
+    
+    RobotManager me = new RobotManager();
+    RobotManagerView f = new RobotManagerView(me);
+    f.setVisible(true);
+  }    
+  
+}
+
+
+//====================================================================
+// this is our view class
+class RobotManagerView extends JFrame {
+  
+  static final int PAD = 5;
+  
+  RobotManager model;
+  
+  JLabel     resultLabel;
+  JTextField sequenceField;
+  JList      robotList;
+  
+  String selectedRobotName;
+  
+  public RobotManagerView(RobotManager model) {
+    super("RobotManager");
+    
+    this.model = model;
+        
+    addWindowListener( new WindowAdapter() {
+      public void windowClosing (WindowEvent e) {
+        setVisible(false);
+        dispose();
+        System.exit(0);
+      }
+    });
+    
+    Container contentPane = getContentPane();
+    SpringLayout layout = new SpringLayout();
+    contentPane.setLayout(layout);
+
+    // create the options
+    JComponent c1 = createCheckboxPanel();
+    contentPane.add(c1);
+
+    JCheckBox cb = new JCheckBox("acquire status");
+    cb.addItemListener( new ItemListener() {
+      public void itemStateChanged (ItemEvent e) {
+        boolean val = (e.getStateChange() == ItemEvent.SELECTED);
+        Logger.log("set acquire status=", Boolean.valueOf(val));
+        acquireRobotStatus(val);
+      }
+    });
+    contentPane.add(cb);
+    
+    // the list
+    JComponent c2 = createListPanel();
+    contentPane.add(c2);
+    
+    // the Send button
+    JButton b1 = new JButton("Send");
+    b1.addActionListener( new ActionListener() {
+      public void actionPerformed (ActionEvent e) {
+        Logger.log("Send pressed");
+        sendSequence();
+      }
+    });
+    contentPane.add(b1);
+    
+    
+    // the sequence text field
+    final JTextField f1 = new JTextField();
+    sequenceField = f1;
+    f1.addActionListener( new ActionListener() {
+      public void actionPerformed(ActionEvent e) {
+        String text = f1.getText();
+        Logger.log("sequence entered: ", text);
+        sendSequence();
+      }
+    });
+
+    int minWidth = 70;
+
+    JLabel l1 = new JLabel("Command", SwingConstants.RIGHT);
+    setMinimumWidth(l1, minWidth);
+    l1.setLabelFor(f1);
+    contentPane.add(l1);
+    contentPane.add(f1);
+    
+    // the result label
+    JLabel l2 = new JLabel();
+    l2.setBorder(new BevelBorder(BevelBorder.LOWERED));
+    setMinimumHeight(l2,f1.getPreferredSize().height-3);
+    resultLabel = l2;
+    JLabel l3 = new JLabel("Result", SwingConstants.RIGHT);
+    setMinimumWidth(l3, minWidth);
+    l3.setLabelFor(l2);
+    contentPane.add(l2);
+    contentPane.add(l3);
+    
+    
+    // now do the gritty layout work - we don't want to be fancy, just functional
+    
+    // the Checkboxes
+    layout.putConstraint( SpringLayout.WEST, c1, PAD,
+                          SpringLayout.WEST, contentPane);
+    layout.putConstraint( SpringLayout.NORTH, c1, PAD,
+                          SpringLayout.NORTH, contentPane);
+
+    layout.putConstraint( SpringLayout.WEST, cb, PAD,
+                          SpringLayout.WEST, contentPane);
+    layout.putConstraint( SpringLayout.NORTH, cb, PAD,
+                          SpringLayout.SOUTH, c1);
+    
+    // the list
+    layout.putConstraint( SpringLayout.WEST, c2, PAD,
+                          SpringLayout.EAST, c1);
+    layout.putConstraint( SpringLayout.EAST, c2, -PAD,
+                          SpringLayout.EAST, contentPane);
+    layout.putConstraint( SpringLayout.NORTH, c2, PAD,
+                          SpringLayout.NORTH, contentPane);
+    layout.putConstraint( SpringLayout.SOUTH, c2, -PAD,
+                          SpringLayout.NORTH, f1);
+    
+    // the send button
+    layout.putConstraint( SpringLayout.HORIZONTAL_CENTER, b1, 0,
+                          SpringLayout.HORIZONTAL_CENTER, c1);
+    layout.putConstraint( SpringLayout.SOUTH, b1, 0,
+                          SpringLayout.SOUTH, c2);
+    
+    // the sequence label
+    layout.putConstraint( SpringLayout.WEST, l1, PAD,
+                          SpringLayout.WEST, contentPane);
+    layout.putConstraint( SpringLayout.VERTICAL_CENTER, l1, 0,
+                          SpringLayout.VERTICAL_CENTER, f1);
+    layout.putConstraint( SpringLayout.WEST, f1, PAD,
+                          SpringLayout.EAST, l1);
+    layout.putConstraint( SpringLayout.EAST, f1, -PAD,
+                          SpringLayout.EAST, contentPane);
+    layout.putConstraint( SpringLayout.SOUTH, f1, -PAD,
+                          SpringLayout.NORTH, l2);    
+    
+    
+    // the result field
+    layout.putConstraint( SpringLayout.WEST, l3, PAD,
+                          SpringLayout.WEST, contentPane);
+    layout.putConstraint( SpringLayout.VERTICAL_CENTER, l3, 0,
+                          SpringLayout.VERTICAL_CENTER, l2);
+    layout.putConstraint( SpringLayout.WEST, l2, PAD,
+                          SpringLayout.EAST, l3);
+    layout.putConstraint( SpringLayout.EAST, l2, -PAD,
+                          SpringLayout.EAST, contentPane);
+    layout.putConstraint( SpringLayout.SOUTH, l2, -PAD,
+                          SpringLayout.SOUTH, contentPane);
+    
+    setMinimumSize(new Dimension(270,250));
+
+    //printComponent(0,0,this);
+  }
+
+  // for debugging
+  protected int printComponent(int level, int index, Component c){
+    System.out.printf("%2d: ", index);
+
+    for (int i=0; i<level; i++){
+      System.out.print("  ");
+    }
+
+    Class<?> cls = c.getClass();
+    System.out.print(cls.getSimpleName());
+    System.out.print("{name=\"");
+    System.out.print(c.getName());
+    System.out.print('"');
+    System.out.println('}');
+
+    level++;
+    if (c instanceof Container){
+      for (Component child : ((Container)c).getComponents()){
+        index = printComponent(level, index+1, child);
+      }
+    }
+    
+    return index;
+  }
+
+  void setMinimumWidth (Component c, int w){
+    Dimension d = c.getPreferredSize();
+    d.width = w;
+    c.setPreferredSize(d);
+  }
+  
+  void setMinimumHeight (Component c, int h){
+    Dimension d = c.getPreferredSize();
+    d.height = h;
+    c.setPreferredSize(d);
+  }
+  
+  public JPanel createCheckboxPanel () {
+    Option[] options = Option.values();
+    
+    JPanel panel = new JPanel();
+    panel.setBorder(new TitledBorder("Options"));    
+    panel.setLayout(new GridLayout(options.length,1));
+    
+    for (Option option : options) {
+      final Option o = option; 
+      JCheckBox cb = new JCheckBox(o.name());
+      cb.addItemListener( new ItemListener() {
+        public void itemStateChanged (ItemEvent e) {
+          boolean val = (e.getStateChange() == ItemEvent.SELECTED);
+          Logger.log("set ", o.name(), "=", Boolean.valueOf(val));
+          o.set(val);
+        }
+      });
+      panel.add(cb);      
+    }
+    
+    return panel;
+  }
+
+  class RobotCellRenderer extends JLabel implements ListCellRenderer {
+    public Component getListCellRendererComponent (JList list, Object value, int index, boolean isSelected, boolean cellHasFocus){
+      Robot robot = (Robot)value;
+      String s = robot.getId();
+      if (model.isRobotOnline(robot.getId())) {
+        s += " - online";
+      }
+      setText(s);
+      
+      if (isSelected) {
+        setBackground(list.getSelectionBackground());
+        setForeground(list.getSelectionForeground());
+      } else {
+        setBackground(list.getBackground());
+        setForeground(list.getForeground());
+      }
+      setEnabled(list.isEnabled());
+      setFont(list.getFont());
+      setOpaque(true);
+      
+      return this;
+    }
+  }
+  
+  JComponent createListPanel() {
+    JPanel panel = new JPanel();
+    panel.setBorder( new TitledBorder("Robots"));
+    panel.setLayout( new GridLayout(1,1));
+    
+    final ListModel lm = model.getListModel();    
+    final JList lp = new JList(lm);
+    
+    JScrollPane sp = new JScrollPane();
+    sp.getViewport().setView(lp);
+        
+    lp.addListSelectionListener( new ListSelectionListener() {
+      public void valueChanged (ListSelectionEvent e){
+        if (!e.getValueIsAdjusting()){
+          Object sel = lp.getSelectedValue();
+          if (sel != null) {
+            selectedRobotName = ((Robot)sel).getId();
+            Logger.log("robot selected: ", selectedRobotName);
+          } else {
+            selectedRobotName = null;
+          }
+        }
+      }
+    });
+    
+    lp.setCellRenderer(new RobotCellRenderer());
+    
+    panel.add(sp);
+    
+    robotList = lp;
+    return panel;    
+  }
+
+  void acquireRobotStatus (boolean b) {
+    if (b) {
+      model.startAcquisitionThread();
+    } else {
+      model.stopAcquisitionThread();
+    }
+  }
+  
+  void sendSequence () {
+    // collect all the data (this could also be kept in fields
+    String sequence = sequenceField.getText();
+    
+    if (selectedRobotName != null) {
+      if (model.isRobotOnline(selectedRobotName)) {
+        Robot robot = model.getOnlineRobot(selectedRobotName);
+        String result = model.sendSequence(robot, sequence);
+        resultLabel.setText(result);
+      } else {
+        resultLabel.setText("REJECT: " + selectedRobotName + " not online");
+      }
+    } else {
+      resultLabel.setText("REJECT: no robot selected");
+    }
+  }
+}

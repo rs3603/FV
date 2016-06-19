@@ -1,0 +1,493 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<BugCollection version="3.0.1-dev-20150306-5afe4d1" sequence="4" timestamp="1450690688118" analysisTimestamp="1450690681435" release="">
+  <Project projectName="jpf-awt">
+    <Jar>C:\Users\Raghavendra\jpffinalwork\jpf-awt\build\examples\Logger.class</Jar>
+    <Jar>C:\Users\Raghavendra\jpffinalwork\jpf-awt\build\examples\Option.class</Jar>
+    <Jar>C:\Users\Raghavendra\jpffinalwork\jpf-awt\build\examples\POGO.class</Jar>
+    <Jar>C:\Users\Raghavendra\jpffinalwork\jpf-awt\build\examples\RATS.class</Jar>
+    <Jar>C:\Users\Raghavendra\jpffinalwork\jpf-awt\build\examples\RCAT.class</Jar>
+    <Jar>C:\Users\Raghavendra\jpffinalwork\jpf-awt\build\examples\Robot.class</Jar>
+    <Jar>C:\Users\Raghavendra\jpffinalwork\jpf-awt\build\examples\RobotManager$ListModel.class</Jar>
+    <Jar>C:\Users\Raghavendra\jpffinalwork\jpf-awt\build\examples\RobotManager.class</Jar>
+    <Jar>C:\Users\Raghavendra\jpffinalwork\jpf-awt\build\examples\RobotManagerView$1.class</Jar>
+    <Jar>C:\Users\Raghavendra\jpffinalwork\jpf-awt\build\examples\RobotManagerView$2.class</Jar>
+    <Jar>C:\Users\Raghavendra\jpffinalwork\jpf-awt\build\examples\RobotManagerView$3.class</Jar>
+    <Jar>C:\Users\Raghavendra\jpffinalwork\jpf-awt\build\examples\RobotManagerView$4.class</Jar>
+    <Jar>C:\Users\Raghavendra\jpffinalwork\jpf-awt\build\examples\RobotManagerView$5.class</Jar>
+    <Jar>C:\Users\Raghavendra\jpffinalwork\jpf-awt\build\examples\RobotManagerView$6.class</Jar>
+    <Jar>C:\Users\Raghavendra\jpffinalwork\jpf-awt\build\examples\RobotManagerView$RobotCellRenderer.class</Jar>
+    <Jar>C:\Users\Raghavendra\jpffinalwork\jpf-awt\build\examples\RobotManagerView.class</Jar>
+    <Jar>C:\Users\Raghavendra\jpffinalwork\jpf-awt\build\examples\RobotStatusAcquisitionThread.class</Jar>
+    <Jar>C:\Users\Raghavendra\jpffinalwork\jpf-awt\build\examples\SetRoboOneOnline.class</Jar>
+    <AuxClasspathEntry>C:\Users\Raghavendra\jpffinalwork\jpf-awt\build\main</AuxClasspathEntry>
+    <AuxClasspathEntry>C:\Users\Raghavendra\jpffinalwork\jpf-awt\build\peers</AuxClasspathEntry>
+    <AuxClasspathEntry>C:\Users\Raghavendra\jpffinalwork\jpf-awt\build\classes</AuxClasspathEntry>
+    <AuxClasspathEntry>C:\Users\Raghavendra\jpffinalwork\jpf-awt\build\examples</AuxClasspathEntry>
+    <AuxClasspathEntry>C:\Users\Raghavendra\jpffinalwork\jpf-awt\build\tests</AuxClasspathEntry>
+    <AuxClasspathEntry>C:\Users\Raghavendra\jpffinalwork\jpf-awt\build</AuxClasspathEntry>
+    <AuxClasspathEntry>C:\Users\Raghavendra\jpffinalwork\jpf-core\build\main</AuxClasspathEntry>
+    <AuxClasspathEntry>C:\Users\Raghavendra\jpffinalwork\jpf-core\build\peers</AuxClasspathEntry>
+    <AuxClasspathEntry>C:\Users\Raghavendra\jpffinalwork\jpf-core\build\classes</AuxClasspathEntry>
+    <AuxClasspathEntry>C:\Users\Raghavendra\jpffinalwork\jpf-core\build\annotations</AuxClasspathEntry>
+    <AuxClasspathEntry>C:\Users\Raghavendra\jpffinalwork\jpf-core\build\examples</AuxClasspathEntry>
+    <AuxClasspathEntry>C:\Users\Raghavendra\jpffinalwork\jpf-core\build\tests</AuxClasspathEntry>
+    <AuxClasspathEntry>C:\Users\Raghavendra\jpffinalwork\jpf-core\build</AuxClasspathEntry>
+    <AuxClasspathEntry>C:\Program Files\Java\jdk1.8.0_45\lib\tools.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>C:\Users\Raghavendra\jpffinalwork\jpf-awt\lib\jpf-aprop-annotations.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>C:\Program Files\Java\jdk1.8.0_45\jre\lib\rt.jar</AuxClasspathEntry>
+    <SrcDir>C:\Users\Raghavendra\jpffinalwork\jpf-awt\src\peers</SrcDir>
+    <SrcDir>C:\Users\Raghavendra\jpffinalwork\jpf-awt\src\main</SrcDir>
+    <SrcDir>C:\Users\Raghavendra\jpffinalwork\jpf-awt\src\examples</SrcDir>
+    <SrcDir>C:\Users\Raghavendra\jpffinalwork\jpf-awt\src\tests</SrcDir>
+    <SrcDir>C:\Users\Raghavendra\jpffinalwork\jpf-awt\src\classes</SrcDir>
+    <Cloud id="edu.umd.cs.findbugs.cloud.doNothingCloud" online="false"></Cloud>
+  </Project>
+  <BugInstance type="URF_UNREAD_FIELD" priority="2" rank="18" abbrev="UrF" category="PERFORMANCE" first="1">
+    <Class classname="RobotManagerView">
+      <SourceLine classname="RobotManagerView" sourcefile="RobotManager.java" sourcepath="RobotManager.java"/>
+    </Class>
+    <Field classname="RobotManagerView" name="robotList" signature="Ljavax/swing/JList;" isStatic="false">
+      <SourceLine classname="RobotManagerView" sourcefile="RobotManager.java" sourcepath="RobotManager.java"/>
+    </Field>
+    <SourceLine classname="RobotManagerView" start="591" end="591" startBytecode="104" endBytecode="104" sourcefile="RobotManager.java" sourcepath="RobotManager.java"/>
+  </BugInstance>
+  <BugInstance type="UC_USELESS_OBJECT" priority="2" rank="17" abbrev="UC" category="STYLE" first="1">
+    <Class classname="SetRoboOneOnline">
+      <SourceLine classname="SetRoboOneOnline" sourcefile="RobotManager.java" sourcepath="RobotManager.java"/>
+    </Class>
+    <Method classname="SetRoboOneOnline" name="run" signature="()V" isStatic="false">
+      <SourceLine classname="SetRoboOneOnline" start="172" end="186" startBytecode="0" endBytecode="259" sourcefile="RobotManager.java" sourcepath="RobotManager.java"/>
+    </Method>
+    <String value="random"/>
+    <Type descriptor="Ljava/util/Random;">
+      <SourceLine classname="java.util.Random" start="26" end="71" sourcefile="Random.java" sourcepath="java/util/Random.java"/>
+    </Type>
+    <SourceLine classname="SetRoboOneOnline" start="175" end="175" startBytecode="20" endBytecode="20" sourcefile="RobotManager.java" sourcepath="RobotManager.java"/>
+  </BugInstance>
+  <BugInstance type="DLS_DEAD_LOCAL_STORE" priority="2" rank="17" abbrev="DLS" category="STYLE" first="1">
+    <Class classname="gov.nasa.jpf.awt.JPF_java_awt_Window">
+      <SourceLine classname="gov.nasa.jpf.awt.JPF_java_awt_Window" sourcefile="JPF_java_awt_Window.java" sourcepath="gov/nasa/jpf/awt/JPF_java_awt_Window.java"/>
+    </Class>
+    <Method classname="gov.nasa.jpf.awt.JPF_java_awt_Window" name="setTitle0__Ljava_lang_String_2Ljava_lang_String_2__V" signature="(Lgov/nasa/jpf/vm/MJIEnv;III)V" isStatic="false">
+      <SourceLine classname="gov.nasa.jpf.awt.JPF_java_awt_Window" start="64" end="68" startBytecode="0" endBytecode="8" sourcefile="JPF_java_awt_Window.java" sourcepath="gov/nasa/jpf/awt/JPF_java_awt_Window.java"/>
+    </Method>
+    <LocalVariable name="newTitle" register="6" pc="15" role="LOCAL_VARIABLE_NAMED"/>
+    <SourceLine classname="gov.nasa.jpf.awt.JPF_java_awt_Window" start="65" end="65" startBytecode="13" endBytecode="13" sourcefile="JPF_java_awt_Window.java" sourcepath="gov/nasa/jpf/awt/JPF_java_awt_Window.java"/>
+    <SourceLine classname="gov.nasa.jpf.awt.JPF_java_awt_Window" start="65" end="65" startBytecode="13" endBytecode="13" sourcefile="JPF_java_awt_Window.java" sourcepath="gov/nasa/jpf/awt/JPF_java_awt_Window.java"/>
+    <Property name="edu.umd.cs.findbugs.detect.DeadLocalStoreProperty.BASE_VALUE" value="true"/>
+    <Property name="edu.umd.cs.findbugs.detect.DeadLocalStoreProperty.LOCAL_NAME" value="newTitle"/>
+    <Property name="edu.umd.cs.findbugs.detect.DeadLocalStoreProperty.METHOD_RESULT" value="true"/>
+    <Property name="edu.umd.cs.findbugs.detect.DeadLocalStoreProperty.NO_LOADS" value="true"/>
+  </BugInstance>
+  <BugInstance type="DLS_DEAD_LOCAL_STORE" priority="2" rank="17" abbrev="DLS" category="STYLE" first="1">
+    <Class classname="gov.nasa.jpf.awt.JPF_java_awt_Window">
+      <SourceLine classname="gov.nasa.jpf.awt.JPF_java_awt_Window" sourcefile="JPF_java_awt_Window.java" sourcepath="gov/nasa/jpf/awt/JPF_java_awt_Window.java"/>
+    </Class>
+    <Method classname="gov.nasa.jpf.awt.JPF_java_awt_Window" name="setTitle0__Ljava_lang_String_2Ljava_lang_String_2__V" signature="(Lgov/nasa/jpf/vm/MJIEnv;III)V" isStatic="false">
+      <SourceLine classname="gov.nasa.jpf.awt.JPF_java_awt_Window" start="64" end="68" startBytecode="0" endBytecode="8" sourcefile="JPF_java_awt_Window.java" sourcepath="gov/nasa/jpf/awt/JPF_java_awt_Window.java"/>
+    </Method>
+    <LocalVariable name="oldTitle" register="5" pc="7" role="LOCAL_VARIABLE_NAMED"/>
+    <SourceLine classname="gov.nasa.jpf.awt.JPF_java_awt_Window" start="64" end="64" startBytecode="5" endBytecode="5" sourcefile="JPF_java_awt_Window.java" sourcepath="gov/nasa/jpf/awt/JPF_java_awt_Window.java"/>
+    <SourceLine classname="gov.nasa.jpf.awt.JPF_java_awt_Window" start="64" end="64" startBytecode="5" endBytecode="5" sourcefile="JPF_java_awt_Window.java" sourcepath="gov/nasa/jpf/awt/JPF_java_awt_Window.java"/>
+    <Property name="edu.umd.cs.findbugs.detect.DeadLocalStoreProperty.BASE_VALUE" value="true"/>
+    <Property name="edu.umd.cs.findbugs.detect.DeadLocalStoreProperty.LOCAL_NAME" value="oldTitle"/>
+    <Property name="edu.umd.cs.findbugs.detect.DeadLocalStoreProperty.METHOD_RESULT" value="true"/>
+    <Property name="edu.umd.cs.findbugs.detect.DeadLocalStoreProperty.NO_LOADS" value="true"/>
+  </BugInstance>
+  <BugInstance type="DM_NUMBER_CTOR" priority="2" rank="18" abbrev="Bx" category="PERFORMANCE" first="1">
+    <Class classname="gov.nasa.jpf.awt.UIAction">
+      <SourceLine classname="gov.nasa.jpf.awt.UIAction" sourcefile="UIAction.java" sourcepath="gov/nasa/jpf/awt/UIAction.java"/>
+    </Class>
+    <Method classname="gov.nasa.jpf.awt.UIAction" name="getBoxedArguments" signature="([Ljava/lang/Class;)[Ljava/lang/Object;" isStatic="false">
+      <SourceLine classname="gov.nasa.jpf.awt.UIAction" start="140" end="157" startBytecode="0" endBytecode="314" sourcefile="UIAction.java" sourcepath="gov/nasa/jpf/awt/UIAction.java"/>
+    </Method>
+    <Method classname="java.lang.Integer" name="&lt;init&gt;" signature="(I)V" isStatic="false" role="METHOD_CALLED">
+      <SourceLine classname="java.lang.Integer" start="849" end="851" startBytecode="0" endBytecode="41" sourcefile="Integer.java" sourcepath="java/lang/Integer.java"/>
+    </Method>
+    <Method classname="java.lang.Integer" name="valueOf" signature="(I)Ljava/lang/Integer;" isStatic="true" role="SHOULD_CALL">
+      <SourceLine classname="java.lang.Integer" start="830" end="832" startBytecode="0" endBytecode="72" sourcefile="Integer.java" sourcepath="java/lang/Integer.java"/>
+    </Method>
+    <SourceLine classname="gov.nasa.jpf.awt.UIAction" start="152" end="152" startBytecode="101" endBytecode="101" sourcefile="UIAction.java" sourcepath="gov/nasa/jpf/awt/UIAction.java"/>
+    <SourceLine classname="gov.nasa.jpf.awt.UIAction" start="152" end="152" startBytecode="101" endBytecode="101" sourcefile="UIAction.java" sourcepath="gov/nasa/jpf/awt/UIAction.java"/>
+  </BugInstance>
+  <BugInstance type="EI_EXPOSE_REP" priority="2" rank="18" abbrev="EI" category="MALICIOUS_CODE" first="1">
+    <Class classname="gov.nasa.jpf.awt.UIAction">
+      <SourceLine classname="gov.nasa.jpf.awt.UIAction" sourcefile="UIAction.java" sourcepath="gov/nasa/jpf/awt/UIAction.java"/>
+    </Class>
+    <Method classname="gov.nasa.jpf.awt.UIAction" name="getArguments" signature="()[Ljava/lang/Object;" isStatic="false">
+      <SourceLine classname="gov.nasa.jpf.awt.UIAction" start="110" end="110" startBytecode="0" endBytecode="46" sourcefile="UIAction.java" sourcepath="gov/nasa/jpf/awt/UIAction.java"/>
+    </Method>
+    <Field classname="gov.nasa.jpf.awt.UIAction" name="arguments" signature="[Ljava/lang/Object;" isStatic="false">
+      <SourceLine classname="gov.nasa.jpf.awt.UIAction" sourcefile="UIAction.java" sourcepath="gov/nasa/jpf/awt/UIAction.java"/>
+    </Field>
+    <SourceLine classname="gov.nasa.jpf.awt.UIAction" start="110" end="110" startBytecode="4" endBytecode="4" sourcefile="UIAction.java" sourcepath="gov/nasa/jpf/awt/UIAction.java"/>
+    <SourceLine classname="gov.nasa.jpf.awt.UIAction" start="110" end="110" startBytecode="4" endBytecode="4" sourcefile="UIAction.java" sourcepath="gov/nasa/jpf/awt/UIAction.java"/>
+  </BugInstance>
+  <BugInstance type="EI_EXPOSE_REP2" priority="2" rank="18" abbrev="EI2" category="MALICIOUS_CODE" first="1">
+    <Class classname="gov.nasa.jpf.awt.UIAction">
+      <SourceLine classname="gov.nasa.jpf.awt.UIAction" sourcefile="UIAction.java" sourcepath="gov/nasa/jpf/awt/UIAction.java"/>
+    </Class>
+    <Method classname="gov.nasa.jpf.awt.UIAction" name="&lt;init&gt;" signature="(Ljava/lang/String;Ljava/lang/String;Z[Ljava/lang/Object;)V" isStatic="false">
+      <SourceLine classname="gov.nasa.jpf.awt.UIAction" start="60" end="66" startBytecode="0" endBytecode="162" sourcefile="UIAction.java" sourcepath="gov/nasa/jpf/awt/UIAction.java"/>
+    </Method>
+    <Field classname="gov.nasa.jpf.awt.UIAction" name="arguments" signature="[Ljava/lang/Object;" isStatic="false">
+      <SourceLine classname="gov.nasa.jpf.awt.UIAction" sourcefile="UIAction.java" sourcepath="gov/nasa/jpf/awt/UIAction.java"/>
+    </Field>
+    <LocalVariable name="arguments" register="4" pc="48" role="LOCAL_VARIABLE_NAMED"/>
+    <SourceLine classname="gov.nasa.jpf.awt.UIAction" start="64" end="64" startBytecode="48" endBytecode="48" sourcefile="UIAction.java" sourcepath="gov/nasa/jpf/awt/UIAction.java"/>
+    <SourceLine classname="gov.nasa.jpf.awt.UIAction" start="64" end="64" startBytecode="48" endBytecode="48" sourcefile="UIAction.java" sourcepath="gov/nasa/jpf/awt/UIAction.java"/>
+  </BugInstance>
+  <BugInstance type="EQ_DOESNT_OVERRIDE_EQUALS" priority="2" rank="17" abbrev="Eq" category="STYLE" first="1">
+    <Class classname="gov.nasa.jpf.awt.UIAction">
+      <SourceLine classname="gov.nasa.jpf.awt.UIAction" sourcefile="UIAction.java" sourcepath="gov/nasa/jpf/awt/UIAction.java"/>
+    </Class>
+    <SourceLine classname="gov.nasa.jpf.awt.UIAction" start="1" end="1" startBytecode="0" endBytecode="0" sourcefile="UIAction.java" sourcepath="gov/nasa/jpf/awt/UIAction.java"/>
+    <Method classname="gov.nasa.jpf.util.event.Event" name="equals" signature="(Ljava/lang/Object;)Z" isStatic="false" role="METHOD_DID_YOU_MEAN_TO_OVERRIDE">
+      <SourceLine classname="gov.nasa.jpf.util.event.Event" start="71" end="79" startBytecode="0" endBytecode="126" sourcefile="Event.java" sourcepath="gov/nasa/jpf/util/event/Event.java"/>
+    </Method>
+  </BugInstance>
+  <BugInstance type="MF_CLASS_MASKS_FIELD" priority="1" rank="6" abbrev="MF" category="CORRECTNESS" first="1">
+    <Class classname="gov.nasa.jpf.awt.UIAction">
+      <SourceLine classname="gov.nasa.jpf.awt.UIAction" sourcefile="UIAction.java" sourcepath="gov/nasa/jpf/awt/UIAction.java"/>
+    </Class>
+    <Field classname="gov.nasa.jpf.awt.UIAction" name="arguments" signature="[Ljava/lang/Object;" isStatic="false" role="FIELD_MASKING">
+      <SourceLine classname="gov.nasa.jpf.awt.UIAction" start="51" end="51" startBytecode="0" endBytecode="0" sourcefile="UIAction.java" sourcepath="gov/nasa/jpf/awt/UIAction.java"/>
+    </Field>
+    <Field classname="gov.nasa.jpf.util.event.Event" name="arguments" signature="[Ljava/lang/Object;" isStatic="false" role="FIELD_MASKED">
+      <SourceLine classname="gov.nasa.jpf.util.event.Event" sourcefile="Event.java" sourcepath="gov/nasa/jpf/util/event/Event.java"/>
+    </Field>
+  </BugInstance>
+  <BugInstance type="SIC_INNER_SHOULD_BE_STATIC" priority="2" rank="18" abbrev="SIC" category="PERFORMANCE" first="1">
+    <Class classname="gov.nasa.jpf.awt.UIActionTree$HasMatchingTextCheck">
+      <SourceLine classname="gov.nasa.jpf.awt.UIActionTree$HasMatchingTextCheck" start="133" end="148" sourcefile="UIActionTree.java" sourcepath="gov/nasa/jpf/awt/UIActionTree.java"/>
+    </Class>
+  </BugInstance>
+  <BugInstance type="SIC_INNER_SHOULD_BE_STATIC" priority="2" rank="18" abbrev="SIC" category="PERFORMANCE" first="1">
+    <Class classname="gov.nasa.jpf.awt.UIActionTree$SingleSelectionCheck">
+      <SourceLine classname="gov.nasa.jpf.awt.UIActionTree$SingleSelectionCheck" start="111" end="123" sourcefile="UIActionTree.java" sourcepath="gov/nasa/jpf/awt/UIActionTree.java"/>
+    </Class>
+  </BugInstance>
+  <BugInstance type="DLS_DEAD_LOCAL_STORE" priority="2" rank="17" abbrev="DLS" category="STYLE" first="1">
+    <Class classname="gov.nasa.jpf.awt.UICheck">
+      <SourceLine classname="gov.nasa.jpf.awt.UICheck" sourcefile="UICheck.java" sourcepath="gov/nasa/jpf/awt/UICheck.java"/>
+    </Class>
+    <Method classname="gov.nasa.jpf.awt.UICheck" name="callMethod" signature="(Lgov/nasa/jpf/vm/MJIEnv;ILjava/lang/String;Ljava/lang/String;)I" isStatic="false">
+      <SourceLine classname="gov.nasa.jpf.awt.UICheck" start="68" end="97" startBytecode="0" endBytecode="70" sourcefile="UICheck.java" sourcepath="gov/nasa/jpf/awt/UICheck.java"/>
+    </Method>
+    <LocalVariable name="argOffset" register="8" pc="64" role="LOCAL_VARIABLE_NAMED"/>
+    <SourceLine classname="gov.nasa.jpf.awt.UICheck" start="78" end="78" startBytecode="62" endBytecode="62" sourcefile="UICheck.java" sourcepath="gov/nasa/jpf/awt/UICheck.java"/>
+    <SourceLine classname="gov.nasa.jpf.awt.UICheck" start="78" end="78" startBytecode="62" endBytecode="62" sourcefile="UICheck.java" sourcepath="gov/nasa/jpf/awt/UICheck.java"/>
+    <Property name="edu.umd.cs.findbugs.detect.DeadLocalStoreProperty.BASE_VALUE" value="true"/>
+    <Property name="edu.umd.cs.findbugs.detect.DeadLocalStoreProperty.LOCAL_NAME" value="argOffset"/>
+    <Property name="edu.umd.cs.findbugs.detect.DeadLocalStoreProperty.METHOD_RESULT" value="true"/>
+    <Property name="edu.umd.cs.findbugs.detect.DeadLocalStoreProperty.NO_LOADS" value="true"/>
+  </BugInstance>
+  <BugInstance type="SIC_INNER_SHOULD_BE_STATIC" priority="2" rank="18" abbrev="SIC" category="PERFORMANCE" first="1">
+    <Class classname="gov.nasa.jpf.test.java.awt.ComponentTest$JLabelTestHelper">
+      <SourceLine classname="gov.nasa.jpf.test.java.awt.ComponentTest$JLabelTestHelper" start="334" end="337" sourcefile="ComponentTest.java" sourcepath="gov/nasa/jpf/test/java/awt/ComponentTest.java"/>
+    </Class>
+  </BugInstance>
+  <BugInstance type="SIC_INNER_SHOULD_BE_STATIC" priority="2" rank="18" abbrev="SIC" category="PERFORMANCE" first="1">
+    <Class classname="gov.nasa.jpf.test.java.awt.ComponentTest$MockFocusListener">
+      <SourceLine classname="gov.nasa.jpf.test.java.awt.ComponentTest$MockFocusListener" start="358" end="364" sourcefile="ComponentTest.java" sourcepath="gov/nasa/jpf/test/java/awt/ComponentTest.java"/>
+    </Class>
+  </BugInstance>
+  <BugInstance type="SIC_INNER_SHOULD_BE_STATIC" priority="2" rank="18" abbrev="SIC" category="PERFORMANCE" first="1">
+    <Class classname="gov.nasa.jpf.test.java.awt.ComponentTest$MockMouseListener">
+      <SourceLine classname="gov.nasa.jpf.test.java.awt.ComponentTest$MockMouseListener" start="340" end="355" sourcefile="ComponentTest.java" sourcepath="gov/nasa/jpf/test/java/awt/ComponentTest.java"/>
+    </Class>
+  </BugInstance>
+  <BugInstance type="SF_SWITCH_NO_DEFAULT" priority="2" rank="19" abbrev="SF" category="STYLE" first="1">
+    <Class classname="java.awt.Component">
+      <SourceLine classname="java.awt.Component" sourcefile="Component.java" sourcepath="java/awt/Component.java"/>
+    </Class>
+    <Method classname="java.awt.Component" name="processFocusEvent" signature="(Ljava/awt/event/FocusEvent;)V" isStatic="false">
+      <SourceLine classname="java.awt.Component" start="131" end="147" startBytecode="0" endBytecode="278" sourcefile="Component.java" sourcepath="java/awt/Component.java"/>
+    </Method>
+    <SourceLine classname="java.awt.Component" start="133" end="142" startBytecode="6" endBytecode="123" sourcefile="Component.java" sourcepath="java/awt/Component.java"/>
+    <SourceLine classname="java.awt.Component" start="133" end="142" startBytecode="6" endBytecode="123" sourcefile="Component.java" sourcepath="java/awt/Component.java"/>
+  </BugInstance>
+  <BugInstance type="SF_SWITCH_NO_DEFAULT" priority="2" rank="19" abbrev="SF" category="STYLE" first="1">
+    <Class classname="java.awt.Component">
+      <SourceLine classname="java.awt.Component" sourcefile="Component.java" sourcepath="java/awt/Component.java"/>
+    </Class>
+    <Method classname="java.awt.Component" name="processMouseEvent" signature="(Ljava/awt/event/MouseEvent;)V" isStatic="false">
+      <SourceLine classname="java.awt.Component" start="150" end="171" startBytecode="0" endBytecode="319" sourcefile="Component.java" sourcepath="java/awt/Component.java"/>
+    </Method>
+    <SourceLine classname="java.awt.Component" start="153" end="167" startBytecode="11" endBytecode="154" sourcefile="Component.java" sourcepath="java/awt/Component.java"/>
+    <SourceLine classname="java.awt.Component" start="153" end="167" startBytecode="11" endBytecode="154" sourcefile="Component.java" sourcepath="java/awt/Component.java"/>
+  </BugInstance>
+  <BugInstance type="SIC_INNER_SHOULD_BE_STATIC" priority="2" rank="18" abbrev="SIC" category="PERFORMANCE" first="1">
+    <Class classname="java.awt.Component$JPFInputContext">
+      <SourceLine classname="java.awt.Component$JPFInputContext" start="422" end="422" sourcefile="Component.java" sourcepath="java/awt/Component.java"/>
+    </Class>
+  </BugInstance>
+  <BugInstance type="MS_FINAL_PKGPROTECT" priority="2" rank="18" abbrev="MS" category="MALICIOUS_CODE" first="1">
+    <Class classname="java.awt.Cursor">
+      <SourceLine classname="java.awt.Cursor" sourcefile="Cursor.java" sourcepath="java/awt/Cursor.java"/>
+    </Class>
+    <Field classname="java.awt.Cursor" name="predefined" signature="[Ljava/awt/Cursor;" isStatic="true">
+      <SourceLine classname="java.awt.Cursor" sourcefile="Cursor.java" sourcepath="java/awt/Cursor.java"/>
+    </Field>
+    <SourceLine classname="java.awt.Cursor" start="43" end="43" startBytecode="5" endBytecode="5" sourcefile="Cursor.java" sourcepath="java/awt/Cursor.java"/>
+  </BugInstance>
+  <BugInstance type="ST_WRITE_TO_STATIC_FROM_INSTANCE_METHOD" priority="2" rank="17" abbrev="ST" category="STYLE" first="1">
+    <Class classname="java.awt.Dialog">
+      <SourceLine classname="java.awt.Dialog" sourcefile="Dialog.java" sourcepath="java/awt/Dialog.java"/>
+    </Class>
+    <Method classname="java.awt.Dialog" name="dispose" signature="()V" isStatic="false">
+      <SourceLine classname="java.awt.Dialog" start="162" end="170" startBytecode="0" endBytecode="105" sourcefile="Dialog.java" sourcepath="java/awt/Dialog.java"/>
+    </Method>
+    <Field classname="java.awt.Window" name="numModalDialogs" signature="I" isStatic="true">
+      <SourceLine classname="java.awt.Window" sourcefile="Window.java" sourcepath="java/awt/Window.java"/>
+    </Field>
+    <SourceLine classname="java.awt.Dialog" start="166" end="166" startBytecode="27" endBytecode="27" sourcefile="Dialog.java" sourcepath="java/awt/Dialog.java"/>
+    <SourceLine classname="java.awt.Dialog" start="166" end="166" startBytecode="27" endBytecode="27" sourcefile="Dialog.java" sourcepath="java/awt/Dialog.java"/>
+  </BugInstance>
+  <BugInstance type="ST_WRITE_TO_STATIC_FROM_INSTANCE_METHOD" priority="2" rank="17" abbrev="ST" category="STYLE" first="1">
+    <Class classname="java.awt.Dialog">
+      <SourceLine classname="java.awt.Dialog" sourcefile="Dialog.java" sourcepath="java/awt/Dialog.java"/>
+    </Class>
+    <Method classname="java.awt.Dialog" name="setVisible" signature="(Z)V" isStatic="false">
+      <SourceLine classname="java.awt.Dialog" start="153" end="158" startBytecode="0" endBytecode="107" sourcefile="Dialog.java" sourcepath="java/awt/Dialog.java"/>
+    </Method>
+    <Field classname="java.awt.Window" name="numModalDialogs" signature="I" isStatic="true">
+      <SourceLine classname="java.awt.Window" sourcefile="Window.java" sourcepath="java/awt/Window.java"/>
+    </Field>
+    <SourceLine classname="java.awt.Dialog" start="155" end="155" startBytecode="22" endBytecode="22" sourcefile="Dialog.java" sourcepath="java/awt/Dialog.java"/>
+    <SourceLine classname="java.awt.Dialog" start="155" end="155" startBytecode="22" endBytecode="22" sourcefile="Dialog.java" sourcepath="java/awt/Dialog.java"/>
+  </BugInstance>
+  <BugInstance type="ST_WRITE_TO_STATIC_FROM_INSTANCE_METHOD" priority="2" rank="17" abbrev="ST" category="STYLE" first="1">
+    <Class classname="java.awt.Dialog">
+      <SourceLine classname="java.awt.Dialog" sourcefile="Dialog.java" sourcepath="java/awt/Dialog.java"/>
+    </Class>
+    <Method classname="java.awt.Dialog" name="show" signature="()V" isStatic="false">
+      <SourceLine classname="java.awt.Dialog" start="133" end="149" startBytecode="0" endBytecode="134" sourcefile="Dialog.java" sourcepath="java/awt/Dialog.java"/>
+    </Method>
+    <Field classname="java.awt.Window" name="numModalDialogs" signature="I" isStatic="true">
+      <SourceLine classname="java.awt.Window" sourcefile="Window.java" sourcepath="java/awt/Window.java"/>
+    </Field>
+    <SourceLine classname="java.awt.Dialog" start="138" end="138" startBytecode="22" endBytecode="22" sourcefile="Dialog.java" sourcepath="java/awt/Dialog.java"/>
+    <SourceLine classname="java.awt.Dialog" start="138" end="138" startBytecode="22" endBytecode="22" sourcefile="Dialog.java" sourcepath="java/awt/Dialog.java"/>
+  </BugInstance>
+  <BugInstance type="UW_UNCOND_WAIT" priority="2" rank="14" abbrev="UW" category="MT_CORRECTNESS" first="1">
+    <Class classname="java.awt.EventQueue">
+      <SourceLine classname="java.awt.EventQueue" sourcefile="EventQueue.java" sourcepath="java/awt/EventQueue.java"/>
+    </Class>
+    <Method classname="java.awt.EventQueue" name="invokeAndWait" signature="(Ljava/lang/Runnable;)V" isStatic="true">
+      <SourceLine classname="java.awt.EventQueue" start="156" end="173" startBytecode="0" endBytecode="251" sourcefile="EventQueue.java" sourcepath="java/awt/EventQueue.java"/>
+    </Method>
+    <SourceLine classname="java.awt.EventQueue" start="165" end="165" startBytecode="50" endBytecode="50" sourcefile="EventQueue.java" sourcepath="java/awt/EventQueue.java"/>
+  </BugInstance>
+  <BugInstance type="WA_NOT_IN_LOOP" priority="2" rank="14" abbrev="Wa" category="MT_CORRECTNESS" first="1">
+    <Class classname="java.awt.EventQueue">
+      <SourceLine classname="java.awt.EventQueue" sourcefile="EventQueue.java" sourcepath="java/awt/EventQueue.java"/>
+    </Class>
+    <Method classname="java.awt.EventQueue" name="invokeAndWait" signature="(Ljava/lang/Runnable;)V" isStatic="true">
+      <SourceLine classname="java.awt.EventQueue" start="156" end="173" startBytecode="0" endBytecode="251" sourcefile="EventQueue.java" sourcepath="java/awt/EventQueue.java"/>
+    </Method>
+    <SourceLine classname="java.awt.EventQueue" start="165" end="165" startBytecode="50" endBytecode="50" sourcefile="EventQueue.java" sourcepath="java/awt/EventQueue.java"/>
+  </BugInstance>
+  <BugInstance type="BC_IMPOSSIBLE_DOWNCAST_OF_TOARRAY" priority="1" rank="5" abbrev="BC" category="CORRECTNESS" first="1">
+    <Class classname="java.awt.Frame">
+      <SourceLine classname="java.awt.Frame" sourcefile="Frame.java" sourcepath="java/awt/Frame.java"/>
+    </Class>
+    <Method classname="java.awt.Frame" name="getFrames" signature="()[Ljava/awt/Frame;" isStatic="true">
+      <SourceLine classname="java.awt.Frame" start="58" end="66" startBytecode="0" endBytecode="26" sourcefile="Frame.java" sourcepath="java/awt/Frame.java"/>
+    </Method>
+    <Type descriptor="[Ljava/lang/Object;" role="TYPE_FOUND"/>
+    <Type descriptor="[Ljava/awt/Frame;" role="TYPE_EXPECTED"/>
+    <Method classname="java.util.ArrayList" name="toArray" signature="()[Ljava/lang/Object;" isStatic="false" role="METHOD_RETURN_VALUE_OF">
+      <SourceLine classname="java.util.ArrayList" start="376" end="376" startBytecode="0" endBytecode="35" sourcefile="ArrayList.java" sourcepath="java/util/ArrayList.java"/>
+    </Method>
+    <SourceLine classname="java.awt.Frame" start="66" end="66" startBytecode="57" endBytecode="57" sourcefile="Frame.java" sourcepath="java/awt/Frame.java"/>
+  </BugInstance>
+  <BugInstance type="FI_EMPTY" priority="2" rank="16" abbrev="FI" category="BAD_PRACTICE" first="1">
+    <Class classname="java.awt.Graphics">
+      <SourceLine classname="java.awt.Graphics" sourcefile="Graphics.java" sourcepath="java/awt/Graphics.java"/>
+    </Class>
+    <Method classname="java.awt.Graphics" name="finalize" signature="()V" isStatic="false">
+      <SourceLine classname="java.awt.Graphics" start="92" end="92" startBytecode="0" endBytecode="42" sourcefile="Graphics.java" sourcepath="java/awt/Graphics.java"/>
+    </Method>
+  </BugInstance>
+  <BugInstance type="FI_PUBLIC_SHOULD_BE_PROTECTED" priority="2" rank="18" abbrev="FI" category="MALICIOUS_CODE" first="1">
+    <Class classname="java.awt.Graphics">
+      <SourceLine classname="java.awt.Graphics" sourcefile="Graphics.java" sourcepath="java/awt/Graphics.java"/>
+    </Class>
+    <Method classname="java.awt.Graphics" name="finalize" signature="()V" isStatic="false">
+      <SourceLine classname="java.awt.Graphics" start="92" end="92" startBytecode="0" endBytecode="42" sourcefile="Graphics.java" sourcepath="java/awt/Graphics.java"/>
+    </Method>
+  </BugInstance>
+  <BugInstance type="UUF_UNUSED_FIELD" priority="2" rank="18" abbrev="UuF" category="PERFORMANCE" first="1">
+    <Class classname="java.awt.JPFToolkit">
+      <SourceLine classname="java.awt.JPFToolkit" sourcefile="Toolkit.java" sourcepath="java/awt/Toolkit.java"/>
+    </Class>
+    <Field classname="java.awt.JPFToolkit" name="eventDispatchThread" signature="Ljava/lang/Thread;" isStatic="false">
+      <SourceLine classname="java.awt.JPFToolkit" start="66" end="66" startBytecode="0" endBytecode="0" sourcefile="JPFToolkit.java" sourcepath="java/awt/JPFToolkit.java"/>
+    </Field>
+  </BugInstance>
+  <BugInstance type="SIC_INNER_SHOULD_BE_STATIC" priority="2" rank="18" abbrev="SIC" category="PERFORMANCE" first="1">
+    <Class classname="java.awt.JPFToolkit$JPFImage">
+      <SourceLine classname="java.awt.JPFToolkit$JPFImage" start="114" end="153" sourcefile="Toolkit.java" sourcepath="java/awt/Toolkit.java"/>
+    </Class>
+  </BugInstance>
+  <BugInstance type="SE_BAD_FIELD" priority="2" rank="16" abbrev="Se" category="BAD_PRACTICE" first="1">
+    <Class classname="java.awt.MediaTracker">
+      <SourceLine classname="java.awt.MediaTracker" sourcefile="MediaTracker.java" sourcepath="java/awt/MediaTracker.java"/>
+    </Class>
+    <Field classname="java.awt.MediaTracker" name="head" signature="Ljava/awt/MediaEntry;" isStatic="false">
+      <SourceLine classname="java.awt.MediaTracker" start="24" end="24" startBytecode="0" endBytecode="0" sourcefile="MediaTracker.java" sourcepath="java/awt/MediaTracker.java"/>
+    </Field>
+    <Type descriptor="Ljava/awt/MediaEntry;" role="TYPE_FOUND">
+      <SourceLine classname="java.awt.MediaEntry" start="863" end="920" sourcefile="MediaTracker.java" sourcepath="java/awt/MediaTracker.java"/>
+    </Type>
+  </BugInstance>
+  <BugInstance type="SE_BAD_FIELD" priority="2" rank="16" abbrev="Se" category="BAD_PRACTICE" first="1">
+    <Class classname="java.awt.MediaTracker">
+      <SourceLine classname="java.awt.MediaTracker" sourcefile="MediaTracker.java" sourcepath="java/awt/MediaTracker.java"/>
+    </Class>
+    <Field classname="java.awt.MediaTracker" name="target" signature="Ljava/awt/Component;" isStatic="false">
+      <SourceLine classname="java.awt.MediaTracker" start="23" end="23" startBytecode="0" endBytecode="0" sourcefile="MediaTracker.java" sourcepath="java/awt/MediaTracker.java"/>
+    </Field>
+    <Type descriptor="Ljava/awt/Component;" role="TYPE_FOUND">
+      <SourceLine classname="java.awt.Component" start="38" end="420" sourcefile="Component.java" sourcepath="java/awt/Component.java"/>
+    </Type>
+  </BugInstance>
+  <BugInstance type="SIC_INNER_SHOULD_BE_STATIC" priority="2" rank="18" abbrev="SIC" category="PERFORMANCE" first="1">
+    <Class classname="javax.swing.JButton$AccessibleJButton">
+      <SourceLine classname="javax.swing.JButton$AccessibleJButton" start="60" end="87" sourcefile="JButton.java" sourcepath="javax/swing/JButton.java"/>
+    </Class>
+  </BugInstance>
+  <BugInstance type="URF_UNREAD_FIELD" priority="2" rank="18" abbrev="UrF" category="PERFORMANCE" first="1">
+    <Class classname="javax.swing.JFrame">
+      <SourceLine classname="javax.swing.JFrame" sourcefile="JFrame.java" sourcepath="javax/swing/JFrame.java"/>
+    </Class>
+    <Field classname="javax.swing.JFrame" name="closeOp" signature="I" isStatic="false">
+      <SourceLine classname="javax.swing.JFrame" sourcefile="JFrame.java" sourcepath="javax/swing/JFrame.java"/>
+    </Field>
+    <SourceLine classname="javax.swing.JFrame" start="80" end="80" startBytecode="2" endBytecode="2" sourcefile="JFrame.java" sourcepath="javax/swing/JFrame.java"/>
+  </BugInstance>
+  <BugInstance type="UUF_UNUSED_FIELD" priority="2" rank="18" abbrev="UuF" category="PERFORMANCE" first="1">
+    <Class classname="javax.swing.JScrollPane">
+      <SourceLine classname="javax.swing.JScrollPane" sourcefile="JScrollPane.java" sourcepath="javax/swing/JScrollPane.java"/>
+    </Class>
+    <Field classname="javax.swing.JScrollPane" name="bottomLeft" signature="Ljava/awt/Component;" isStatic="false">
+      <SourceLine classname="javax.swing.JScrollPane" start="40" end="40" startBytecode="0" endBytecode="0" sourcefile="JScrollPane.java" sourcepath="javax/swing/JScrollPane.java"/>
+    </Field>
+  </BugInstance>
+  <BugInstance type="UUF_UNUSED_FIELD" priority="2" rank="18" abbrev="UuF" category="PERFORMANCE" first="1">
+    <Class classname="javax.swing.JScrollPane">
+      <SourceLine classname="javax.swing.JScrollPane" sourcefile="JScrollPane.java" sourcepath="javax/swing/JScrollPane.java"/>
+    </Class>
+    <Field classname="javax.swing.JScrollPane" name="bottomRight" signature="Ljava/awt/Component;" isStatic="false">
+      <SourceLine classname="javax.swing.JScrollPane" start="40" end="40" startBytecode="0" endBytecode="0" sourcefile="JScrollPane.java" sourcepath="javax/swing/JScrollPane.java"/>
+    </Field>
+  </BugInstance>
+  <BugInstance type="UUF_UNUSED_FIELD" priority="2" rank="18" abbrev="UuF" category="PERFORMANCE" first="1">
+    <Class classname="javax.swing.JScrollPane">
+      <SourceLine classname="javax.swing.JScrollPane" sourcefile="JScrollPane.java" sourcepath="javax/swing/JScrollPane.java"/>
+    </Class>
+    <Field classname="javax.swing.JScrollPane" name="columnHeader" signature="Ljavax/swing/JViewport;" isStatic="false">
+      <SourceLine classname="javax.swing.JScrollPane" start="38" end="38" startBytecode="0" endBytecode="0" sourcefile="JScrollPane.java" sourcepath="javax/swing/JScrollPane.java"/>
+    </Field>
+  </BugInstance>
+  <BugInstance type="UUF_UNUSED_FIELD" priority="2" rank="18" abbrev="UuF" category="PERFORMANCE" first="1">
+    <Class classname="javax.swing.JScrollPane">
+      <SourceLine classname="javax.swing.JScrollPane" sourcefile="JScrollPane.java" sourcepath="javax/swing/JScrollPane.java"/>
+    </Class>
+    <Field classname="javax.swing.JScrollPane" name="rowHeader" signature="Ljavax/swing/JViewport;" isStatic="false">
+      <SourceLine classname="javax.swing.JScrollPane" start="37" end="37" startBytecode="0" endBytecode="0" sourcefile="JScrollPane.java" sourcepath="javax/swing/JScrollPane.java"/>
+    </Field>
+  </BugInstance>
+  <BugInstance type="UUF_UNUSED_FIELD" priority="2" rank="18" abbrev="UuF" category="PERFORMANCE" first="1">
+    <Class classname="javax.swing.JScrollPane">
+      <SourceLine classname="javax.swing.JScrollPane" sourcefile="JScrollPane.java" sourcepath="javax/swing/JScrollPane.java"/>
+    </Class>
+    <Field classname="javax.swing.JScrollPane" name="topLeft" signature="Ljava/awt/Component;" isStatic="false">
+      <SourceLine classname="javax.swing.JScrollPane" start="40" end="40" startBytecode="0" endBytecode="0" sourcefile="JScrollPane.java" sourcepath="javax/swing/JScrollPane.java"/>
+    </Field>
+  </BugInstance>
+  <BugInstance type="UUF_UNUSED_FIELD" priority="2" rank="18" abbrev="UuF" category="PERFORMANCE" first="1">
+    <Class classname="javax.swing.JScrollPane">
+      <SourceLine classname="javax.swing.JScrollPane" sourcefile="JScrollPane.java" sourcepath="javax/swing/JScrollPane.java"/>
+    </Class>
+    <Field classname="javax.swing.JScrollPane" name="topRight" signature="Ljava/awt/Component;" isStatic="false">
+      <SourceLine classname="javax.swing.JScrollPane" start="40" end="40" startBytecode="0" endBytecode="0" sourcefile="JScrollPane.java" sourcepath="javax/swing/JScrollPane.java"/>
+    </Field>
+  </BugInstance>
+  <BugInstance type="BC_UNCONFIRMED_CAST" priority="2" rank="17" abbrev="BC" category="STYLE" first="1">
+    <Class classname="javax.swing.plaf.basic.BasicListUI">
+      <SourceLine classname="javax.swing.plaf.basic.BasicListUI" sourcefile="BasicListUI.java" sourcepath="javax/swing/plaf/basic/BasicListUI.java"/>
+    </Class>
+    <Method classname="javax.swing.plaf.basic.BasicListUI" name="installUI" signature="(Ljavax/swing/JComponent;)V" isStatic="false">
+      <SourceLine classname="javax.swing.plaf.basic.BasicListUI" start="40" end="44" startBytecode="0" endBytecode="15" sourcefile="BasicListUI.java" sourcepath="javax/swing/plaf/basic/BasicListUI.java"/>
+    </Method>
+    <Type descriptor="Ljavax/swing/JComponent;" role="TYPE_FOUND">
+      <SourceLine classname="javax.swing.JComponent" start="36" end="144" sourcefile="JComponent.java" sourcepath="javax/swing/JComponent.java"/>
+    </Type>
+    <Type descriptor="Ljavax/swing/JList;" role="TYPE_EXPECTED">
+      <SourceLine classname="javax.swing.JList" start="48" end="489" sourcefile="JList.java" sourcepath="javax/swing/JList.java"/>
+    </Type>
+    <LocalVariable name="c" register="1" pc="1" role="LOCAL_VARIABLE_VALUE_OF"/>
+    <SourceLine classname="javax.swing.plaf.basic.BasicListUI" start="40" end="40" startBytecode="2" endBytecode="2" sourcefile="BasicListUI.java" sourcepath="javax/swing/plaf/basic/BasicListUI.java"/>
+    <SourceLine classname="javax.swing.plaf.basic.BasicListUI" start="40" end="40" startBytecode="2" endBytecode="2" sourcefile="BasicListUI.java" sourcepath="javax/swing/plaf/basic/BasicListUI.java"/>
+  </BugInstance>
+  <BugInstance type="BC_UNCONFIRMED_CAST" priority="2" rank="17" abbrev="BC" category="STYLE" first="1">
+    <Class classname="javax.swing.plaf.basic.BasicTextUI">
+      <SourceLine classname="javax.swing.plaf.basic.BasicTextUI" sourcefile="BasicTextUI.java" sourcepath="javax/swing/plaf/basic/BasicTextUI.java"/>
+    </Class>
+    <Method classname="javax.swing.plaf.basic.BasicTextUI" name="installUI" signature="(Ljavax/swing/JComponent;)V" isStatic="false">
+      <SourceLine classname="javax.swing.plaf.basic.BasicTextUI" start="174" end="176" startBytecode="0" endBytecode="9" sourcefile="BasicTextUI.java" sourcepath="javax/swing/plaf/basic/BasicTextUI.java"/>
+    </Method>
+    <Type descriptor="Ljavax/swing/JComponent;" role="TYPE_FOUND">
+      <SourceLine classname="javax.swing.JComponent" start="36" end="144" sourcefile="JComponent.java" sourcepath="javax/swing/JComponent.java"/>
+    </Type>
+    <Type descriptor="Ljavax/swing/text/JTextComponent;" role="TYPE_EXPECTED">
+      <SourceLine classname="javax.swing.text.JTextComponent" start="293" end="4937" sourcefile="JTextComponent.java" sourcepath="javax/swing/text/JTextComponent.java"/>
+    </Type>
+    <LocalVariable name="c" register="1" pc="1" role="LOCAL_VARIABLE_VALUE_OF"/>
+    <SourceLine classname="javax.swing.plaf.basic.BasicTextUI" start="174" end="174" startBytecode="2" endBytecode="2" sourcefile="BasicTextUI.java" sourcepath="javax/swing/plaf/basic/BasicTextUI.java"/>
+    <SourceLine classname="javax.swing.plaf.basic.BasicTextUI" start="174" end="174" startBytecode="2" endBytecode="2" sourcefile="BasicTextUI.java" sourcepath="javax/swing/plaf/basic/BasicTextUI.java"/>
+  </BugInstance>
+  <BugInstance type="SIC_INNER_SHOULD_BE_STATIC" priority="2" rank="18" abbrev="SIC" category="PERFORMANCE" first="1">
+    <Class classname="javax.swing.plaf.basic.BasicTextUI$RootView">
+      <SourceLine classname="javax.swing.plaf.basic.BasicTextUI$RootView" start="62" end="78" sourcefile="BasicTextUI.java" sourcepath="javax/swing/plaf/basic/BasicTextUI.java"/>
+    </Class>
+  </BugInstance>
+  <Errors errors="0" missingClasses="0"></Errors>
+  <FindBugsSummary timestamp="Mon, 21 Dec 2015 04:03:34 -0500" total_classes="18" referenced_classes="119" total_bugs="42" total_size="443" num_packages="6" java_version="1.7.0_09" vm_version="23.5-b02" cpu_seconds="7.29" clock_seconds="6.69" peak_mbytes="316.61" alloc_mbytes="494.94" gc_seconds="0.19" priority_2="40" priority_1="2">
+    <PackageStats package="" total_bugs="2" total_types="18" total_size="443" priority_2="2">
+      <ClassStats class="Logger" sourceFile="RobotManager.java" interface="false" size="17" bugs="0"/>
+      <ClassStats class="Option" sourceFile="RobotManager.java" interface="false" size="17" bugs="0"/>
+      <ClassStats class="POGO" sourceFile="RobotManager.java" interface="false" size="10" bugs="0"/>
+      <ClassStats class="RATS" sourceFile="RobotManager.java" interface="false" size="6" bugs="0"/>
+      <ClassStats class="RCAT" sourceFile="RobotManager.java" interface="false" size="6" bugs="0"/>
+      <ClassStats class="Robot" sourceFile="RobotManager.java" interface="false" size="25" bugs="0"/>
+      <ClassStats class="RobotManager" sourceFile="RobotManager.java" interface="false" size="68" bugs="0"/>
+      <ClassStats class="RobotManager$ListModel" sourceFile="RobotManager.java" interface="false" size="18" bugs="0"/>
+      <ClassStats class="RobotManagerView" sourceFile="RobotManager.java" interface="false" size="148" bugs="1" priority_2="1"/>
+      <ClassStats class="RobotManagerView$1" sourceFile="RobotManager.java" interface="false" size="10" bugs="0"/>
+      <ClassStats class="RobotManagerView$2" sourceFile="RobotManager.java" interface="false" size="10" bugs="0"/>
+      <ClassStats class="RobotManagerView$3" sourceFile="RobotManager.java" interface="false" size="9" bugs="0"/>
+      <ClassStats class="RobotManagerView$4" sourceFile="RobotManager.java" interface="false" size="11" bugs="0"/>
+      <ClassStats class="RobotManagerView$5" sourceFile="RobotManager.java" interface="false" size="11" bugs="0"/>
+      <ClassStats class="RobotManagerView$6" sourceFile="RobotManager.java" interface="false" size="14" bugs="0"/>
+      <ClassStats class="RobotManagerView$RobotCellRenderer" sourceFile="RobotManager.java" interface="false" size="19" bugs="0"/>
+      <ClassStats class="RobotStatusAcquisitionThread" sourceFile="RobotManager.java" interface="false" size="22" bugs="0"/>
+      <ClassStats class="SetRoboOneOnline" sourceFile="RobotManager.java" interface="false" size="22" bugs="1" priority_2="1"/>
+    </PackageStats>
+    <FindBugsProfile>
+      <ClassProfile name="de.tobject.findbugs.builder.FindBugs2Eclipse" totalMilliseconds="3863" invocations="2" avgMicrosecondsPerInvocation="1931696" maxMicrosecondsPerInvocation="3815752" standardDeviationMircosecondsPerInvocation="1884055"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.ClassDataAnalysisEngine" totalMilliseconds="838" invocations="530" avgMicrosecondsPerInvocation="1582" maxMicrosecondsPerInvocation="14962" standardDeviationMircosecondsPerInvocation="649"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.ClassInfoAnalysisEngine" totalMilliseconds="537" invocations="527" avgMicrosecondsPerInvocation="1020" maxMicrosecondsPerInvocation="84450" standardDeviationMircosecondsPerInvocation="4965"/>
+    </FindBugsProfile>
+  </FindBugsSummary>
+  <ClassFeatures></ClassFeatures>
+  <History>
+    <AppVersion sequence="0" timestamp="1450690571116" release="" codeSize="0" numClasses="0"/>
+    <AppVersion sequence="1" timestamp="1450690571195" release="" codeSize="3750" numClasses="106"/>
+    <AppVersion sequence="2" timestamp="1450690602016" release="" codeSize="443" numClasses="18"/>
+    <AppVersion sequence="3" timestamp="1450690642455" release="" codeSize="443" numClasses="18"/>
+  </History>
+</BugCollection>

@@ -1,0 +1,5 @@
+@include ${config_path}/RobotManager-thread.jpf
+
+listener=.listener.ChoiceSelector,.listener.NullTracker
+
+choice.use_trace=trace

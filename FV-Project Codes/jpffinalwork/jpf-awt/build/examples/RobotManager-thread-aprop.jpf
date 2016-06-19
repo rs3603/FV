@@ -1,0 +1,29 @@
+# run RobotManager example with background data acquisition thread
+# and check for @Shared violations by means of the jpf-aprop NonSharedChecker
+
+target = RobotManager
+
+# which event sequences to explore
+event.tree.class=RobotManager_thread
+
+# the modeled data acquisition thread needs it
+cg.enumerate_random=true
+
+# don't obfuscate things in handlers
+vm.halt_on_throw=java.lang.NullPointerException
+
+# we are not interested in the known POGO assertion
+vm.disable_assertions=POGO
+
+# what to show
+report.console.property_violation=error
+
+listener=.listener.NonSharedChecker
+nonshared.throw_on_cycle=true
+
+# where to get the event generator
+native_classpath=${jpf-awt}/build/examples
+
+# where to find example sources and classfiles 
+classpath=${jpf-awt}/build/examples;${classpath}
+sourcepath=${jpf-awt}/src/examples;${sourcepath}

@@ -1,0 +1,19 @@
+public class CheckNPE{
+public class Widget {
+private int value;
+
+public Widget(int v) { value = v; }
+
+public int getValue() { return value; }
+}
+
+public class Oops {
+
+private Widget theWidget;
+
+public void main(String[] args) {
+Oops myInstance = new Oops();
+System.out.println(myInstance.theWidget.getValue()); 
+}
+}
+}
